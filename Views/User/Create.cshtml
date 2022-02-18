@@ -1,0 +1,68 @@
+﻿@model NewProject1Crud.Models.UserData
+@{
+    Layout = null;
+}
+
+<div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" asp-action="Create">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check-label" asp-for="Gender">Gender</label>
+                        <div class="form-check">
+
+                            <input asp-for="Gender" class="form-check-input" type="radio" value="option1">
+                            <label class="form-check-label" asp-for="Gender">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Gender" value="option2">
+                            <label class="form-check-label" asp-for="Gender">
+                                Female
+                            </label>
+                        </div>
+                    </div><br />
+                    <div class="form-group">
+                        <label asp-for="Email_Id" class="control-label">Email_ID</label>
+                        <input type="email" asp-for="Email_Id" class="form-control" />
+                        <span asp-validation-for="Email_Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mobile_No" class="control-label">Phone No</label>
+                        <input type="number" asp-for="Mobile_No" class="form-control" />
+                        <span asp-validation-for="Mobile_No" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label">Name</label>
+                        <textarea asp-for="Address" class="form-control"></textarea>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label" asp-for="Isactive">Action</label>
+                        <select class="form-control" asp-for="Isactive">
+                            <option>Select</option>
+                            <option value="true">Isactive</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,54 @@
+﻿@model NewProject1Crud.Models.ItemsData
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Items</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create1" asp-controller="Items" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemName" class="control-label">Product Name</label>
+                <input asp-for="ItemName" class="form-control" />
+                <span asp-validation-for="ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemPrice" class="control-label">Item Price</label>
+                <input asp-for="ItemPrice" class="form-control" />
+                <span asp-validation-for="ItemPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stocks" class="control-label">Stocks</label>
+                <input asp-for="Stocks" class="form-control" />
+                <span asp-validation-for="Stocks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discription"  class="control-label">Discrp</label>
+                <textarea asp-for="Discription" class="form-control"></textarea>
+                <span asp-validation-for="Discription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Images" class="control-label">Please Select Files</label>
+                <input type="file" asp-for="Images" class="form-control" />
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label" asp-for="Isactive">Action</label>
+                <select class="form-control" asp-for="Isactive">
+                    <option >Select</option>
+                    <option value="true">Isactive</option>
+                    <option value="false">Inactive</option>
+                </select> 
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

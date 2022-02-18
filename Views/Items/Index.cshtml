@@ -1,0 +1,36 @@
+﻿@model IEnumerable<NewProject1Crud.Models.ItemsData>
+@{
+    ViewData["Title"] = "Index";
+}
+<a  asp-controller="Items" asp-action="Create"   class="btn btn-primary">Add Items</a>
+<div class="table-responsive">
+    <table class="table table-bordered text-center">
+        <tr>
+            <th>Id</th>
+            <th>ProductName</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Discription</th>
+            <th>Images</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var data in Model)
+        {
+    <tr>
+        <td>@data.Id</td>
+        <td>@data.ItemName</td>
+        <td>@data.ItemPrice</td>
+        <td>@data.Stocks</td>
+        <td>@data.Discription</td>
+        <td><img src="@data.Images" height="60" width="60" /></td>
+        <td>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a  asp-action="UpdateDetails" asp-route-Id="@data.Id" class="btn btn-primary me-md-2">Edit</a>&nbsp;&nbsp;
+                <a href="@Url.Action("Deletedetails",new {data.Id})" class="btn btn-danger me-md-2" onclick="return confirm('Do You Want to Delete this Record')">Delete</a>
+            </div>
+        </td>
+        
+    </tr>
+        }
+    </table>
+</div>
